@@ -1,4 +1,4 @@
-EPiServerTranslatorLocalizationProvider
+EPiServer translator localization provider
 =======================================
 
 Before running the website make sure that you obtain a API key for the Yandex translation tool (http://api.yandex.com/translate/) 
