@@ -25,6 +25,10 @@ namespace Site.Business.Localization.Cache
         /// <returns></returns>
         public string XmlFilenamePath(CultureInfo culture)
         {
+            if (culture == null)
+            {
+                throw new ArgumentException("culture");
+            }
             return string.Format("{0}{1}", _xmlPath, string.Format(_xmlFilename, culture.TwoLetterISOLanguageName));
         }
 
@@ -38,7 +42,6 @@ namespace Site.Business.Localization.Cache
             {
                 throw new ArgumentException("cacheFilePath");
             }
-
             _xmlPath = AppDomain.CurrentDomain.BaseDirectory + cacheFilePath;
 
             _xDocuments = new Dictionary<string, XDocument>();
