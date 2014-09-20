@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -42,6 +43,11 @@ namespace Site.Business.Localization.Cache
             {
                 throw new ArgumentException("cacheFilePath");
             }
+            if (!cacheFilePath.Last().Equals('/')) // check if the cache file path end with a slash
+            {
+                cacheFilePath = cacheFilePath + "/";
+            }
+
             _xmlPath = AppDomain.CurrentDomain.BaseDirectory + cacheFilePath;
 
             _xDocuments = new Dictionary<string, XDocument>();
